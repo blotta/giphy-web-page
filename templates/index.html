@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="greeter">
+            <h1 class="text-center">{{.Greeting}}</h1>
+        </div>
+        {{ if (eq .Gif.Status "API OK")}}
+        <div id="randomgif" class="embed-responsive embed-responsive-16by9">
+            <iframe src="{{ .Gif.EmbedURL }}" class="embed-responsive-item"></iframe>
+        </div>
+        {{ else }}
+        <div class="alert alert-danger">
+            It wasn't possible to get a random gif :(
+        </div>
+        {{ end }}
+    </div>
+</body>
+</html>
